@@ -1,9 +1,13 @@
+// VARIABILI GLOBALI
 let inizia = document.querySelector(".inizia")
 let difficolta
 const griglia = document.querySelector(".griglia")
 
 
+// BOTTONE PER FAR INIZIARE LA PARTITA
 inizia.addEventListener("click", function () {
+
+    // VARIABILI PER GESTIRE IL GIOCO
     difficolta = document.getElementById("difficolta").value
     let nCelle
     let nomeClasse
@@ -11,6 +15,7 @@ inizia.addEventListener("click", function () {
     let bombe = []
     let punteggio = 0
 
+    // INSERIRE I VALORI NELLE VARIABILI A SECONDA DELLA DIFFICOLTA' SCELTA
     if (difficolta == "") {
         console.log("ciao")
         boxDifficolta.classList.add("nessuna-scelta")
@@ -32,6 +37,7 @@ inizia.addEventListener("click", function () {
         genGriglia(nCelle, nomeClasse)
     }
 
+    // FUNZIONE PER GENERARE LA GRIGLIA IN BASE ALLA DIFFICOLTA' SCELTA
     function genGriglia(nCelle, nomeClasse) {
         griglia.innerHTML = ""
         genBombe(bombe)
@@ -52,12 +58,11 @@ inizia.addEventListener("click", function () {
                     punteggio++
                     console.log("Ora il tuo punteggio è:" + punteggio)
                 }
-
             })
         }
-
     }
 
+    // FUNZIONE PER GENERARE 16 BOMBE CASUALI
     function genBombe(array) {
         while (array.length < 16) {
             numRandom = Math.floor(Math.random() * 99 + 1)

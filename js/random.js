@@ -1,3 +1,6 @@
+// PROVE FUNZIONE GENERATORE BOMBA
+
+
 // let bombe = []
 
 // function genBombe(array) {
