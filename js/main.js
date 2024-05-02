@@ -2,12 +2,20 @@ let inizia = document.querySelector(".inizia")
 let difficolta
 const griglia = document.querySelector(".griglia")
 
+
 inizia.addEventListener("click", function () {
     difficolta = document.getElementById("difficolta").value
     let nCelle
     let nomeClasse
+    const boxDifficolta = document.getElementById("difficolta")
+    let bombe = []
 
-    if (difficolta == "facile") {
+    if (difficolta == "") {
+        console.log("ciao")
+        boxDifficolta.classList.add("nessuna-scelta")
+    }
+
+    else if (difficolta == "facile") {
         nCelle = 100
         nomeClasse = "q-easy"
         genGriglia(nCelle, nomeClasse)
@@ -22,7 +30,7 @@ inizia.addEventListener("click", function () {
         nomeClasse = "q-difficult"
         genGriglia(nCelle, nomeClasse)
     }
-    
+
     function genGriglia(nCelle, nomeClasse) {
         griglia.innerHTML = ""
 
@@ -37,6 +45,19 @@ inizia.addEventListener("click", function () {
                 console.log(i)
             })
         }
+        
+        genBombe (bombe)
     }
 
+    function genBombe(array) {
+        while (array.length < 16) {
+            numRandom = Math.floor(Math.random() * 99 + 1)
+                if (array.includes(numRandom)) {         
+            }
+            else {
+                array.push(numRandom)
+            }    
+            console.log(array)
+        }  
+    }
 })

@@ -27,7 +27,7 @@ h1 {
 }
 
 #difficolta {
-    border: none;
+    border: solid white;
     width: 250px;
     height: 44px;
     border-radius: 13px;
@@ -35,6 +35,10 @@ h1 {
     padding-left: 7px;
     font-size: 25px;
     text-align: center;
+}
+
+.nessuna-scelta {
+    border: solid red;
 }
 
 .inizia {
