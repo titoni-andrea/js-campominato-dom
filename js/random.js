@@ -14,6 +14,11 @@
 // genBombe (bombe)
 
 
+
+
+
+
+
 // let bombe = []
 
 // while (bombe.length < 16) {

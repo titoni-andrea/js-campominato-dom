@@ -9,6 +9,7 @@ inizia.addEventListener("click", function () {
     let nomeClasse
     const boxDifficolta = document.getElementById("difficolta")
     let bombe = []
+    let punteggio = 0
 
     if (difficolta == "") {
         console.log("ciao")
@@ -33,6 +34,7 @@ inizia.addEventListener("click", function () {
 
     function genGriglia(nCelle, nomeClasse) {
         griglia.innerHTML = ""
+        genBombe(bombe)
 
         for (let i = 1; i <= nCelle; i++) {
             const quadrato = document.createElement("div");
@@ -41,23 +43,30 @@ inizia.addEventListener("click", function () {
             griglia.append(quadrato)
 
             quadrato.addEventListener("click", function () {
-                quadrato.classList.add("clicked")
-                console.log(i)
+                if (bombe.includes(i)) {
+                    quadrato.classList.add("clicked-bomb")
+                }
+
+                else {
+                    quadrato.classList.add("clicked-safe")
+                    punteggio++
+                    console.log("Ora il tuo punteggio è:" + punteggio)
+                }
+
             })
         }
-        
-        genBombe (bombe)
+
     }
 
     function genBombe(array) {
         while (array.length < 16) {
             numRandom = Math.floor(Math.random() * 99 + 1)
-                if (array.includes(numRandom)) {         
+            if (array.includes(numRandom)) {
             }
             else {
                 array.push(numRandom)
-            }    
+            }
             console.log(array)
-        }  
+        }
     }
 })

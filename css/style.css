@@ -81,6 +81,10 @@ h1 {
     aspect-ratio: 1;
 }
 
-.clicked {
+.clicked-safe {
     background-color: rgb(108, 192, 220);
+}
+
+.clicked-bomb {
+    background-color: rgb(222, 32, 29);
 }
