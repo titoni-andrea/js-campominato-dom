@@ -110,7 +110,7 @@ inizia.addEventListener("click", function () {
             banner.append(titBanner)
             banner.append(punteggioUser)
             banner.append(ricomincia)
-            ricomincia.addEventListener("click", function() {
+            ricomincia.addEventListener("click", function () {
                 creaGioco(griglia, difficolta)
             })
         }
@@ -129,7 +129,7 @@ inizia.addEventListener("click", function () {
             banner.append(titBanner)
             banner.append(punteggioUser)
             banner.append(ricomincia)
-            ricomincia.addEventListener("click", function() {
+            ricomincia.addEventListener("click", function () {
                 creaGioco(griglia, difficolta)
             })
         }
