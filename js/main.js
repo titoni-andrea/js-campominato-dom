@@ -19,6 +19,7 @@ inizia.addEventListener("click", function () {
         let gameOver = false
         const sfondoScuro = document.getElementById("sfondo")
         const bannerGO = document.getElementById("banner")
+        let punteggioMax = nCelle - bombe.length
 
         // SVUOTARE ELEMENTI FINE GIOCO
         sfondoScuro.classList.remove("sfondo")
@@ -72,7 +73,11 @@ inizia.addEventListener("click", function () {
                     }
 
                     if (gameOver) {
-                        finePartita(sfondoScuro, bannerGO, punteggio)
+                        finePartitaL(sfondoScuro, bannerGO, punteggio)
+                    }
+
+                    else if (punteggioMax == punteggio) {
+                        finePartitaW(sfondoScuro, bannerGO, punteggio)
                     }
                 })
             }
@@ -81,17 +86,17 @@ inizia.addEventListener("click", function () {
         // FUNZIONE PER GENERARE 16 BOMBE CASUALI
         function genBombe(array) {
             while (array.length < 16) {
-                numRandom = Math.floor(Math.random() * 99 + 1)
+                numRandom = Math.floor(Math.random() * nCelle + 1)
                 if (array.includes(numRandom)) {
                 }
                 else {
                     array.push(numRandom)
                 }
-                console.log(array)
             }
+            console.log(array)
         }
 
-        function finePartita(sfondo, banner, punteggio) {
+        function finePartitaL(sfondo, banner, punteggio) {
             sfondo.classList.add("sfondo")
             banner.classList.add("banner")
             const ricomincia = document.createElement("button")
@@ -102,6 +107,25 @@ inizia.addEventListener("click", function () {
             ricomincia.classList.add("fine-gioco")
             const titBanner = document.createElement("h2")
             titBanner.innerHTML = "HAI PERSO!"
+            banner.append(titBanner)
+            banner.append(punteggioUser)
+            banner.append(ricomincia)
+            ricomincia.addEventListener("click", function() {
+                creaGioco(griglia, difficolta)
+            })
+        }
+
+        function finePartitaW(sfondo, banner, punteggio) {
+            sfondo.classList.add("sfondo")
+            banner.classList.add("banner")
+            const ricomincia = document.createElement("button")
+            const punteggioUser = document.createElement("p")
+            punteggioUser.classList.add("testo")
+            punteggioUser.innerHTML = "Il tuo punteggio è: " + punteggio
+            ricomincia.innerHTML = "GIOCA"
+            ricomincia.classList.add("fine-gioco")
+            const titBanner = document.createElement("h2")
+            titBanner.innerHTML = "CONGRATULAZIONI HAI VINTO!"
             banner.append(titBanner)
             banner.append(punteggioUser)
             banner.append(ricomincia)
